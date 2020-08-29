@@ -18,3 +18,7 @@ They should use Svelte/Sapper. This application is written in Sapper which is ex
 
 * run `pnpm run dev` from the [src/cookie-bakery](src/cookie-bakery) directory
 * open your browser `open http://localhost:3000`
+
+## notes
+
+* the contents of the `<head>` section in the [template.html](./src/cookie-bakery/src/template.html) is stolen from the [HEAD](https://github.com/joshbuchea/HEAD) repo
