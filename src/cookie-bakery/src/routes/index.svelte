@@ -1,46 +1,90 @@
 <style>
-	h1, figure, p {
-		text-align: center;
-		margin: 0 auto;
+	#canvas {
+		display: grid;
+		grid-template-columns: 1vh 1fr 1vh;
+		grid-template-rows: 1vh 1fr 5fr 1vh;
+		grid-template-areas:
+			'. . .'
+			'. sun .'
+			'. building .'
+			'. . .'
+		;
+		grid-gap: 1vh;
+		align-content: center;
+
+		position: relative;
+		padding: 0;
+		margin: 0;
+
+		max-height: 100vh;
+
+		background-color: white;
 	}
 
-	h1 {
-		font-size: 2.8em;
+	#sun-container {
+		grid-area: sun;
+		display: flex;
+		justify-content: flex-end;
+		margin: 1vh;
+	}
+	
+	#sun {
+		display: block;
+		width: 10vw;
+		height: 10vw;
+
+		background-color: yellow;
+		border-radius: 50%;
+	}
+
+	#bakery-container {
+		grid-area: building;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		position: relative;
+	}
+
+	#bakery-roof,
+	#bakery-body {
+		width: 60%;
+		position: relative;
+	}
+
+	#bakery-roof {
+		flex: 1 0 auto;
+		grid-area: bakery-roof;
+		background-color: red;
+	}
+
+	#bakery-title {
+		background-color: green;
+		font-size: 4rem;
 		text-transform: uppercase;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
+		position: absolute;
+		top: 22%;
+		z-index: 1;
 	}
 
-	figure {
-		margin: 0 0 1em 0;
-	}
-
-	img {
-		width: 100%;
-		max-width: 400px;
-		margin: 0 0 1em 0;
-	}
-
-	p {
-		margin: 1em auto;
-	}
-
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
+	#bakery-body {
+		flex: 3 0 auto;
+		grid-area: bakery-body;
+		background-color: grey;
 	}
 </style>
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>Cookie Bakery</title>
 </svelte:head>
 
-<h1>Great success!</h1>
-
-<figure>
-	<img alt='Success Kid' src='successkid.jpg'>
-	<figcaption>Have fun with Sapper!</figcaption>
-</figure>
-
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+<div id="canvas">
+	<div id="sun-container">
+		<div id="sun" />
+	</div>
+	<div id="bakery-container">
+		<div id="bakery-roof">roof</div>
+		<div id="bakery-title">Cookie Bakery</div>
+		<div id="bakery-body">body</div>
+	</div>
+</div>
