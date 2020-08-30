@@ -1,3 +1,9 @@
+<script>
+	import Window from '../components/Window.svelte';
+	import Door from '../components/Door.svelte';
+	import Mailbox from '../components/Mailbox.svelte';
+</script>
+
 <style>
 	#canvas {
 		display: grid;
@@ -30,8 +36,8 @@
 	
 	#sun {
 		display: block;
-		width: 10vw;
-		height: 10vw;
+		width: 7vw;
+		height: 7vw;
 
 		background-color: yellow;
 		border-radius: 50%;
@@ -53,9 +59,14 @@
 	}
 
 	#bakery-roof {
-		flex: 1 0 auto;
+		border-bottom: 23rem solid red;
+		border-left: 35rem solid transparent;
+		border-right: 35rem solid transparent;
+		flex: 1 1 30%;
 		grid-area: bakery-roof;
-		background-color: red;
+		height: 0;
+		position: relative;
+		width: 0;
 	}
 
 	#bakery-title {
@@ -63,14 +74,51 @@
 		font-size: 4rem;
 		text-transform: uppercase;
 		position: absolute;
-		top: 22%;
+		top: calc(30% - 4rem / 1.5);
 		z-index: 1;
 	}
 
 	#bakery-body {
-		flex: 3 0 auto;
+		display: grid;
+		grid-template-columns: 1.25fr 1fr 1.25fr;
+		grid-template-rows: 1fr 1fr;
+		grid-template-areas:
+			'window-left door window-right'
+			'. door mailbox'
+		;
+		flex: 3 0 70%;
 		grid-area: bakery-body;
-		background-color: grey;
+		background-color: lightgrey;
+	}
+
+	#window-left,
+	#window-right {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	#window-left {
+		grid-area: window-left;
+	}
+
+	#window-right {
+		grid-area: window-right;
+	}
+
+	#door-container {
+		grid-area: door;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: center;
+	}
+
+	#mailbox-container {
+		align-items: flex-start;
+		display: flex;
+		grid-area: mailbox;
+		justify-content: center;
 	}
 </style>
 
@@ -83,8 +131,21 @@
 		<div id="sun" />
 	</div>
 	<div id="bakery-container">
-		<div id="bakery-roof">roof</div>
+		<div id="bakery-roof" />
 		<div id="bakery-title">Cookie Bakery</div>
-		<div id="bakery-body">body</div>
+		<div id="bakery-body">
+			<div id="window-left">
+				<Window />
+			</div>
+			<div id="window-right">
+				<Window />
+			</div>
+			<div id="door-container">
+				<Door />
+			</div>
+			<div id="mailbox-container">
+				<Mailbox />
+			</div>
+		</div>
 	</div>
 </div>
