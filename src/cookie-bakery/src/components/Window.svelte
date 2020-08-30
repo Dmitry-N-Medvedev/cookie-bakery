@@ -3,7 +3,8 @@
 <style>
   .window {
     display: flex;
-    background-color: aquamarine;
+    background-color: var(--window-background-color);
+    border: 0.125vw solid var(--window-border-color);
     border-radius: 50%;
 
     position: relative;

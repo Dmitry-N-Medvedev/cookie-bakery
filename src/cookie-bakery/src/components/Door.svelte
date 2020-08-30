@@ -2,7 +2,7 @@
 
 <style>
   .door {
-    background-color: orange;
+    background-color: var(--door-background-color);
     display: flex;
     flex-direction: column;
     height: 75%;
@@ -11,7 +11,7 @@
   }
 
   .door-handle {
-    background-color: black;
+    background-color: var(--door-handle-color);
     height: 0.75vh;
     left: 0.5vw;
     position: absolute;

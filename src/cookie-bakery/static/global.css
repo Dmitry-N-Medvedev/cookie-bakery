@@ -9,8 +9,6 @@ body {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: stretch;
-
-	background-color: red;
 }
 
 body {
@@ -27,6 +25,4 @@ body {
 	flex: 1 0 auto;
 	justify-content: center;
 	align-items: center;
-
-	background-color: yellowgreen;
 }

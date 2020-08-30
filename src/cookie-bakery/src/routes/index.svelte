@@ -5,6 +5,22 @@
 </script>
 
 <style>
+	:root {
+		--canvas-background-color: white;
+		--sun-background-color: rgba(254, 253, 50, 1);
+		--roof-background-color: rgba(232, 147, 127, 1);
+		--body-background-color: rgba(214, 214, 214, 1);
+		--bakery-title-background-color: rgba(160, 205, 146, 1);
+		--bakery-title-border-color: rgba(119, 181, 102, 1);
+		--bakery-title-text-color: rgba(51, 100, 35, 1);
+		--window-background-color: rgba(215, 231, 245, 1);
+		--window-border-color: rgba(173, 207, 236, 1);
+		--door-background-color: rgba(251, 192, 129, 1);
+		--door-handle-color: rgba(197, 116, 21, 1);
+		--mailbox-background-color: rgba(169, 169, 169, 1);
+		--mailbox-slit-color: rgba(121, 121, 121, 1);
+		--mailbox-text-color: rgba(93, 93, 93, 1);
+	}
 	#canvas {
 		display: grid;
 		grid-template-columns: 1vh 1fr 1vh;
@@ -24,7 +40,7 @@
 
 		max-height: 100vh;
 
-		background-color: white;
+		background-color: var(--canvas-background-color);
 	}
 
 	#sun-container {
@@ -39,7 +55,7 @@
 		width: 7vw;
 		height: 7vw;
 
-		background-color: yellow;
+		background-color: var(--sun-background-color);
 		border-radius: 50%;
 	}
 
@@ -59,7 +75,7 @@
 	}
 
 	#bakery-roof {
-		border-bottom: 23rem solid red;
+		border-bottom: 23rem solid var(--roof-background-color);
 		border-left: 35rem solid transparent;
 		border-right: 35rem solid transparent;
 		flex: 1 1 30%;
@@ -70,12 +86,16 @@
 	}
 
 	#bakery-title {
-		background-color: green;
+		background-color: var(--bakery-title-background-color);
+		border: 0.125vw solid var(--bakery-title-border-color);
+		color: var(--bakery-title-text-color);
 		font-size: 4rem;
 		text-transform: uppercase;
 		position: absolute;
 		top: calc(30% - 4rem / 1.5);
 		z-index: 1;
+
+		padding: 0 1vw;
 	}
 
 	#bakery-body {
@@ -88,7 +108,7 @@
 		;
 		flex: 3 0 70%;
 		grid-area: bakery-body;
-		background-color: lightgrey;
+		background-color: var(--body-background-color);
 	}
 
 	#window-left,

@@ -15,12 +15,12 @@
     position: relative;
     width: 7vw;
     height: 7vw;
-    background-color: darkgrey;
+    background-color: var(--mailbox-background-color);
   }
 
   .mailbox-slit {
     align-self: center;
-    background-color: #868686;
+    background-color: var(--mailbox-slit-color);
     grid-area: mailbox-slit;
     height: 1.0vh;
     justify-self: center;
@@ -34,6 +34,7 @@
     justify-content: center;
     font-size: 1vw;
     text-transform: capitalize;
+    color: var(--mailbox-text-color);
   }
 </style>
 
