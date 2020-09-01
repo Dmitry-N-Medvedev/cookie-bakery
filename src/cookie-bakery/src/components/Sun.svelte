@@ -5,9 +5,9 @@
   let theme;
   let unsubscribeFromState;
 
-  $: if (theme) {
-    console.debug('theme:', theme);
-  }
+  // $: if (theme) {
+  //   console.debug('theme:', theme);
+  // }
 
   const changeTheme = () => {
     STATE.toggleTheme();
@@ -20,9 +20,9 @@
   onMount(() => {
     theme = STATE.theme();
 
-		unsubscribeFromState = STATE.subscribe((value) => {
-			console.debug('Sun::STATE.subscribe:', value);
-		});
+		// unsubscribeFromState = STATE.subscribe((value) => {
+		// 	console.debug('Sun::STATE.subscribe:', value);
+		// });
   });
 
   onDestroy(() => {

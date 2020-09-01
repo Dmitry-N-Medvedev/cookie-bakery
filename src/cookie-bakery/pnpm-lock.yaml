@@ -1,5 +1,6 @@
 dependencies:
   compression: 1.7.4
+  nanoid: 3.1.12
   polka: 1.0.0-next.11
   sirv: 1.0.6
 devDependencies:
@@ -1606,6 +1607,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
+  /nanoid/3.1.12:
+    dev: false
+    engines:
+      node: ^10 || ^12 || >=13.7
+    hasBin: true
+    resolution:
+      integrity: sha512-1qstj9z5+x491jfiC4Nelk+f8XBad7LN20PmyWINJEMRSf3wcAjAWysw1qaA8z6NSKe2sjq1hRSDpBH5paCb6A==
   /negotiator/0.6.2:
     dev: false
     engines:
@@ -2150,6 +2158,7 @@ specifiers:
   '@rollup/plugin-node-resolve': ^8.0.0
   '@rollup/plugin-replace': ^2.2.0
   compression: ^1.7.1
+  nanoid: ^3.1.12
   npm-run-all: ^4.1.5
   polka: next
   rollup: ^2.3.4

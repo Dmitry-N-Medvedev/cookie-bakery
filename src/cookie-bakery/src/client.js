@@ -5,6 +5,7 @@ import {
 import {
 	LocalStorageKeys,
 } from './constants.mjs';
+import './api/gateway.mjs';
 
 STATE.setTheme(localStorage.getItem(LocalStorageKeys.THEME) || 'light');
 

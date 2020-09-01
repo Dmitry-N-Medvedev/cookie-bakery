@@ -14,7 +14,7 @@
 		document.documentElement.setAttribute('data-theme', STATE.theme());
 
 		unsubscribeFromState = STATE.subscribe((value) => {
-			console.debug('index::STATE.subscribe:', value.theme);
+			// console.debug('index::STATE.subscribe:', value.theme);
 			document.documentElement.setAttribute('data-theme', value.theme);
 			localStorage.setItem(LocalStorageKeys.THEME, value.theme);
 		});
