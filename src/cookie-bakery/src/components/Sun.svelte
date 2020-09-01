@@ -1,22 +1,34 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
+  import { STATE } from '../stores/state.mjs';
 
   let theme;
+  let unsubscribeFromState;
 
   $: if (theme) {
     console.debug('theme:', theme);
   }
 
   const changeTheme = () => {
-    theme === 'light' ? theme = 'dark' : theme = 'light';
+    STATE.toggleTheme();
 
-    localStorage.setItem('theme', theme);
+    // localStorage.setItem('theme', STATE.theme());
 
-    document.documentElement.setAttribute('data-theme', theme);
+    // document.documentElement.setAttribute('data-theme', STATE.theme());
   }
 
   onMount(() => {
-    theme = localStorage.getItem('theme') || 'light';
+    theme = STATE.theme();
+
+		unsubscribeFromState = STATE.subscribe((value) => {
+			console.debug('Sun::STATE.subscribe:', value);
+		});
+  });
+
+  onDestroy(() => {
+		if (unsubscribeFromState) {
+			unsubscribeFromState();
+		}
   });
 </script>
 

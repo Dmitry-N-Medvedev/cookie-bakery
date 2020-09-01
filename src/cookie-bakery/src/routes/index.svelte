@@ -1,15 +1,29 @@
 <script>
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
+	import { STATE } from '../stores/state.mjs';
+	import { LocalStorageKeys } from '../constants.mjs';
 
 	import Sun from '../components/Sun.svelte';
 	import Window from '../components/Window.svelte';
 	import Door from '../components/Door.svelte';
 	import Mailbox from '../components/Mailbox.svelte';
 
-	onMount(() => {
-		const theme = localStorage.getItem('theme') || 'light';
+	let unsubscribeFromState;
 
-		document.documentElement.setAttribute('data-theme', theme);
+	onMount(() => {
+		document.documentElement.setAttribute('data-theme', STATE.theme());
+
+		unsubscribeFromState = STATE.subscribe((value) => {
+			console.debug('index::STATE.subscribe:', value.theme);
+			document.documentElement.setAttribute('data-theme', value.theme);
+			localStorage.setItem(LocalStorageKeys.THEME, value.theme);
+		});
+	});
+
+	onDestroy(() => {
+		if (unsubscribeFromState) {
+			unsubscribeFromState();
+		}
 	});
 </script>
 
