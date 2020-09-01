@@ -1,4 +1,10 @@
-<script></script>
+<script>
+  let mailbox;
+
+  const handleMailboxClick = () => {
+    mailbox.parentElement.style.alignItems = 'flex-end';
+  }
+</script>
 
 <style>
   .mailbox {
@@ -16,6 +22,8 @@
     width: 7vw;
     height: 7vw;
     background-color: var(--mailbox-background-color);
+
+    cursor: not-allowed;
   }
 
   .mailbox-slit {
@@ -38,7 +46,7 @@
   }
 </style>
 
-<div class="mailbox">
+<div class="mailbox" bind:this={mailbox} on:click={handleMailboxClick}>
   <div class="mailbox-slit" />
   <div class="mailbox-title">mailbox</div>
 </div>

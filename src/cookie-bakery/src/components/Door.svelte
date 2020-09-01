@@ -1,4 +1,8 @@
-<script></script>
+<script>
+  const handleDoorClick = () => {
+    console.debug('handleDoorClick');
+  }
+</script>
 
 <style>
   .door {
@@ -8,6 +12,9 @@
     height: 75%;
     position: relative;
     width: 100%;
+    cursor: pointer;
+
+    pointer-events: var(--pointer-events);
   }
 
   .door-handle {
@@ -20,6 +27,6 @@
   }
 </style>
 
-<div class="door">
+<div class="door" on:click={handleDoorClick}>
   <div class="door-handle" />
 </div>

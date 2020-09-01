@@ -41,6 +41,8 @@
 		background-color: var(--sun-background-color);
 		border-radius: 50%;
     cursor: pointer;
+
+    pointer-events: all;
 	}
 </style>
 

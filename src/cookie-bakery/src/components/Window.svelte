@@ -8,6 +8,10 @@
     position: relative;
     width: 7vw;
     height: 7vw;
+
+    cursor: pointer;
+
+    pointer-events: var(--pointer-events);
   }
 
   .window > picture > img {

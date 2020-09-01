@@ -13,6 +13,7 @@
 	--mailbox-background-color: hsl(0, 0%, 66%);
 	--mailbox-slit-color: hsl(0, 0%, 47%);
 	--mailbox-text-color: hsl(0, 0%, 36%);
+	--pointer-events: auto;
 }
 
 [data-theme="dark"] {
@@ -30,6 +31,7 @@
 	--mailbox-background-color: hsl(0, 0%, 26%);
 	--mailbox-slit-color: hsl(0, 0%, 17%);
 	--mailbox-text-color: hsl(0, 0%, 17%);
+	--pointer-events: none;
 }
 
 html,
@@ -52,6 +54,8 @@ body {
 	color: #333;
 
 	background-color: var(--canvas-background-color);
+	/* pointer-events: none; */
+	user-select: none;
 }
 
 #cookie-bakery {

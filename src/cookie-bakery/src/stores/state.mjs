@@ -32,7 +32,6 @@ const createState = () => {
       return newState;
     }),
     theme: () => state.theme,
-    isWorkingHours: () => state.theme === Themes.LIGHT,
   }
 };
 
