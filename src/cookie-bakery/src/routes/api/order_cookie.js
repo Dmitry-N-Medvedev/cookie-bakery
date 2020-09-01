@@ -1,18 +1,46 @@
+import AWS from 'aws-sdk';
 import {
   APIOps,
+  AWSDynamoDBSettings,
 } from '../../constants.mjs';
+
+const dynamoDB = new AWS.DynamoDB({
+  apiVersion: AWSDynamoDBSettings.apiVersion,
+  region: AWSDynamoDBSettings.region,
+});
+
+const putItem = (request) => new Promise((resolve, reject) => {
+  dynamoDB.putItem({
+    Item: {
+      id: {
+        S: String(request.id),
+      },
+      ts: {
+        S: String(request.ts),
+      },
+      op: {
+        S: String(request.op),
+      },
+    },
+    TableName: AWSDynamoDBSettings.TableName,
+  }, (err, data) => {
+    if (err) {
+      reject(err);
+    } else {
+      resolve({
+        orderId: request.id,
+      });
+    }
+  });
+});
 
 const opHandlers = {
   [APIOps.ORDER_COOKIE]: async (request) => {
     const orderId = Date.now();
+    
+    Object.assign(request, { id: orderId });
 
-    //
-    // write data to AWS
-    //
-
-    return {
-      orderId,
-    }
+    return putItem(request);
   },
 };
 
@@ -37,6 +65,8 @@ export async function post(req, res, next) {
       try {
         response = await (opHandlers[request.op])(request);
       } catch (opHandlerError) {
+        console.error('opHandlerError', opHandlerError);
+
         res.writeHead(404, {
           'Content-Type': 'application/json',
           'X-Powerd-By': 'Auto1 Frontend Developer',
@@ -54,6 +84,4 @@ export async function post(req, res, next) {
         }
       }
     });
-
-  // next();
 }
