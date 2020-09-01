@@ -1,3 +1,37 @@
+:root {
+	--canvas-background-color: hsl(0, 0%, 100%);
+	--sun-background-color: hsl(60, 99%, 60%);
+	--roof-background-color: hsl(11, 70%, 70%);
+	--body-background-color: hsl(0, 0%, 84%);
+	--bakery-title-background-color: hsl(106, 37%, 69%);
+	--bakery-title-border-color: hsl(107, 35%, 55%);
+	--bakery-title-text-color: hsl(105, 48%, 26%);
+	--window-background-color: hsl(208, 60%, 90%);
+	--window-border-color: hsl(208, 62%, 80%);
+	--door-background-color: hsl(31, 94%, 75%);
+	--door-handle-color: hsl(32, 81%, 43%);
+	--mailbox-background-color: hsl(0, 0%, 66%);
+	--mailbox-slit-color: hsl(0, 0%, 47%);
+	--mailbox-text-color: hsl(0, 0%, 36%);
+}
+
+[data-theme="dark"] {
+	--canvas-background-color: hsl(240, 100%, 27.3%, 1);
+	--sun-background-color: hsl(0, 0%, 91%);
+	--roof-background-color: hsl(11, 30%, 30%);
+	--body-background-color: hsl(0, 0%, 44%);
+	--bakery-title-background-color: hsl(106, 17%, 39%);
+	--bakery-title-border-color: hsl(107, 5%, 25%);
+	--bakery-title-text-color: hsl(105, 18%, 6%);
+	--window-background-color: hsl(208, 20%, 50%);
+	--window-border-color: hsl(208, 22%, 40%);
+	--door-background-color: hsl(31, 54%, 35%);
+	--door-handle-color: hsl(32, 41%, 23%);
+	--mailbox-background-color: hsl(0, 0%, 26%);
+	--mailbox-slit-color: hsl(0, 0%, 17%);
+	--mailbox-text-color: hsl(0, 0%, 17%);
+}
+
 html,
 body {
 	margin: 0;
@@ -16,6 +50,8 @@ body {
 	font-size: 14px;
 	line-height: 1.5;
 	color: #333;
+
+	background-color: var(--canvas-background-color);
 }
 
 #cookie-bakery {

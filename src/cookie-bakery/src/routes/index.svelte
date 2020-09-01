@@ -1,26 +1,19 @@
 <script>
+	import { onMount } from 'svelte';
+
+	import Sun from '../components/Sun.svelte';
 	import Window from '../components/Window.svelte';
 	import Door from '../components/Door.svelte';
 	import Mailbox from '../components/Mailbox.svelte';
+
+	onMount(() => {
+		const theme = localStorage.getItem('theme') || 'light';
+
+		document.documentElement.setAttribute('data-theme', theme);
+	});
 </script>
 
 <style>
-	:root {
-		--canvas-background-color: white;
-		--sun-background-color: rgba(254, 253, 50, 1);
-		--roof-background-color: rgba(232, 147, 127, 1);
-		--body-background-color: rgba(214, 214, 214, 1);
-		--bakery-title-background-color: rgba(160, 205, 146, 1);
-		--bakery-title-border-color: rgba(119, 181, 102, 1);
-		--bakery-title-text-color: rgba(51, 100, 35, 1);
-		--window-background-color: rgba(215, 231, 245, 1);
-		--window-border-color: rgba(173, 207, 236, 1);
-		--door-background-color: rgba(251, 192, 129, 1);
-		--door-handle-color: rgba(197, 116, 21, 1);
-		--mailbox-background-color: rgba(169, 169, 169, 1);
-		--mailbox-slit-color: rgba(121, 121, 121, 1);
-		--mailbox-text-color: rgba(93, 93, 93, 1);
-	}
 	#canvas {
 		display: grid;
 		grid-template-columns: 1vh 1fr 1vh;
@@ -40,7 +33,7 @@
 
 		max-height: 100vh;
 
-		background-color: var(--canvas-background-color);
+		/* background-color: var(--canvas-background-color); */
 	}
 
 	#sun-container {
@@ -50,14 +43,14 @@
 		margin: 1vh;
 	}
 	
-	#sun {
+	/* #sun {
 		display: block;
 		width: 7vw;
 		height: 7vw;
 
 		background-color: var(--sun-background-color);
 		border-radius: 50%;
-	}
+	} */
 
 	#bakery-container {
 		grid-area: building;
@@ -148,7 +141,7 @@
 
 <div id="canvas">
 	<div id="sun-container">
-		<div id="sun" />
+		<Sun />
 	</div>
 	<div id="bakery-container">
 		<div id="bakery-roof" />
