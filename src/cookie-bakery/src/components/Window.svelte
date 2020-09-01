@@ -1,5 +1,3 @@
-<script></script>
-
 <style>
   .window {
     display: flex;
@@ -11,6 +9,26 @@
     width: 7vw;
     height: 7vw;
   }
+
+  .window > picture > img {
+    opacity: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    transition: opacity 0.75s ease-in;
+  }
+
+  .window:hover > picture > img {
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+  }
 </style>
 
-<div class="window" />
+<div class="window">
+  <picture>
+    <source srcset="/images/cookie.avif" type="image/avif">
+    <source srcset="/images/cookie.webp" type="image/webp">
+    <img src="/images/cookie.png" alt="cookie">
+  </picture>
+</div>
