@@ -17,7 +17,7 @@ They should use Svelte/Sapper. This application is written in Sapper which is ex
 ## how to run
 
 * run `pnpm run dev` from the [src/cookie-bakery](src/cookie-bakery) directory
-* open your browser `open http://localhost:3000`
+* open your browser `http://localhost:3000`
 
 ## notes
 
