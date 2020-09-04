@@ -1,4 +1,6 @@
 :root {
+	--main-width: 85vh;
+	--main-height: 85vh;
 	--canvas-background-color: hsl(0, 0%, 100%);
 	--sun-background-color: hsl(60, 99%, 60%);
 	--roof-background-color: hsl(11, 70%, 70%);

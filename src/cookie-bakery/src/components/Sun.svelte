@@ -34,15 +34,15 @@
 
 <style>
 	#sun {
-		display: block;
-		width: 7vw;
-		height: 7vw;
-
-		background-color: var(--sun-background-color);
-		border-radius: 50%;
+    display: block;
+    width: calc(var(--main-width) / 5);
+    height: calc(var(--main-width) / 5);
+    background-color: var(--sun-background-color);
+    border-radius: 50%;
     cursor: pointer;
-
     pointer-events: all;
+    position: absolute;
+    top: 0;
 	}
 </style>
 

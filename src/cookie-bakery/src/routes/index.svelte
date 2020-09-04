@@ -30,22 +30,23 @@
 <style>
 	#canvas {
 		display: grid;
-		grid-template-columns: 1vh 1fr 1vh;
-		grid-template-rows: 1vh 1fr 5fr 1vh;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 5fr;
 		grid-template-areas:
-			'. . .'
-			'. sun .'
-			'. building .'
-			'. . .'
+			'sun'
+			'building'
 		;
-		grid-gap: 1vh;
+		/* grid-gap: 1vh; */
 		align-content: center;
 
 		position: relative;
 		padding: 0;
 		margin: 0;
 
-		max-height: 100vh;
+		/* max-height: 100vh; */
+
+		width: 100%;
+		height: 100%;
 
 		/* background-color: var(--canvas-background-color); */
 	}
@@ -54,7 +55,7 @@
 		grid-area: sun;
 		display: flex;
 		justify-content: flex-end;
-		margin: 1vh;
+		/* margin: 1vh; */
 	}
 	
 	/* #sun {
@@ -70,7 +71,7 @@
 		grid-area: building;
 		display: flex;
 		flex-direction: column;
-		justify-content: flex-start;
+		justify-content: center;
 		align-items: center;
 		position: relative;
 	}
@@ -82,15 +83,47 @@
 	}
 
 	#bakery-roof {
-		border-bottom: 23rem solid var(--roof-background-color);
+		/* background-color: var(--roof-background-color); */
+		width: 90%;
+		padding-bottom: calc(90% / 1.41);
+		height: 50%;
+		position: relative;
+		overflow: hidden;
+	}
+
+	#bakery-roof::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: var(--roof-background-color);
+		transform-origin: 0 100%;
+		transform: rotate(45deg);
+	}
+
+	/* #bakery-roof::after {
+		background-color: var(--roof-background-color);
+		content: "";
+		position: absolute;
+		top: 50px;
+		left: 0;
+		width: 50%;
+		z-index: -1;
+	} */
+
+	/* #bakery-roof {
+		border-bottom: 24vh solid var(--roof-background-color);
 		border-left: 35rem solid transparent;
 		border-right: 35rem solid transparent;
+		box-sizing: border-box;
 		flex: 1 1 30%;
 		grid-area: bakery-roof;
 		height: 0;
 		position: relative;
-		width: 0;
-	}
+		width: 90%;
+	} */
 
 	#bakery-title {
 		background-color: var(--bakery-title-background-color);
@@ -99,7 +132,7 @@
 		font-size: 4rem;
 		text-transform: uppercase;
 		position: absolute;
-		top: calc(30% - 4rem / 1.5);
+		bottom: calc(52% - 4rem / 1.5);
 		z-index: 1;
 
 		padding: 0 1vw;
@@ -116,6 +149,9 @@
 		flex: 3 0 70%;
 		grid-area: bakery-body;
 		background-color: var(--body-background-color);
+		position: relative;
+		width: 90%;
+		max-height: 60%;
 	}
 
 	#window-left,
